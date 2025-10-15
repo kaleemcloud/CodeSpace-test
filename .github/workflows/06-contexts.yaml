@@ -40,7 +40,7 @@ jobs:
         run: |
           echo "workflow env: ${{env.My_workflow_Var}}"
           echo "overwritten env: ${{env.My_Overwritten_Var}}"
-  echo-data:
+  echo-data2:
     runs-on: ubuntu-latest
     steps:
       - name: Print Env Variables
