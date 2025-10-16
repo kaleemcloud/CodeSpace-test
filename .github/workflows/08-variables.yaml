@@ -5,7 +5,7 @@ on:
     env:
       workflow_var:  'I am a workflow env var'
       overwritten_var: 'I will be overwritten'
-job:
+jobs:
   echo:
     runs-on: ubuntu-latest
     env:
