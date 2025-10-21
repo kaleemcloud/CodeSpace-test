@@ -6,6 +6,18 @@ jobs:
  echo1:
   runs-on: ubunu-latest
   steps:
+    - name: Print PR Title
+      run:
+        echo "${{github.event.pull_request.title}}"
+    - name: Print PR Labels
+      run: |
+        cat << EOF
+        ${{tojSON(github.event.pull_request.labels)}}
+        EOF
+    - name: Bug Step
+      if: ${{!cancelled() && contains(github.event.pull_request.title, 'fix')}}
+      run:
+        echo "Iam a bug fix"
     - name: sleep 20 seconds
       run: sleep 20
     - name: Failing step
