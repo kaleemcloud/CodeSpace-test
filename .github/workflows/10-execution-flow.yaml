@@ -22,7 +22,7 @@ jobs:
 
   unit-test:
     runs-on: ubuntu-latest
-    continue-on-error: true
+    # continue-on-error: true
     steps:
       - name: running unit tests
         run: |
