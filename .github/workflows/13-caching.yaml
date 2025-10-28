@@ -11,10 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defualts:
+    defaults:
       run:
         working-directory: 13-caching/react-app
-    Steps:
+    steps:
       - name: checkout code
         uses: action/checkout@v4
       - name: Setup Node
