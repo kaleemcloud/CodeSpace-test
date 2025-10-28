@@ -1,0 +1,36 @@
+name: 13-caching
+
+on:
+  workflow_dispatch:
+    inputs:
+      use-cache:
+        description: whether to execute cache steps
+        type: boolean
+        default: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defualts:
+      run:
+        working-directory: 13-caching/react-app
+    Steps:
+      - name: checkout code
+        uses: action/checkout@v4
+      - name: Setup Node
+        uses: action/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Testing
+        run: npm run test
+      - name: Building
+        run: npm run build
+      - name: Deploying to non-prod
+        run: |
+          echo "Deploying to non-prod ..."
+    # 1. Checkout the code
+    # 2. Install Dependencies
+    # 3. Linting, Formatting, unit testing, building
+    # 4. Deploy to a non-prod env
