@@ -19,5 +19,5 @@ jobs:
         with: ${{ matrix.node-version}}
 
       - name: perform some test
-        run: echo "Running test on os ${{ matrix.os }} and Nodejs ${{ matix.node-version}}"
+        run: echo "Running test on os ${{ matrix.os }} and Nodejs ${{ matrix.node-version}}"
 
