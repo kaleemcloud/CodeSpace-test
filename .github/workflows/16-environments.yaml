@@ -5,17 +5,34 @@ on:
     inputs:
       target-env:
         type: environment
+        # this type check the environment section in settings for variables and values but this feature avaiable only for non-organisation  
         default: staging
     
 jobs:
-  echo:
+  deploy-staging:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.target-env }}
-    env:
-      MY_ENV_Value: ${{ vars.MY_ENV_Value || 'default value'}}
+    # environment: ${{ inputs.target-env }}
+    environmnet: staging
+    # env:
+    #   MY_ENV_Value: ${{ vars.MY_ENV_Value || 'default value'}}
     steps:
       - name: echo-vars
         run: |
-          echo "Env Vars: ${{ env.MY_ENV_Value}}"
+          # echo "Env Vars: ${{ env.MY_ENV_Value}}"
+          echo "Env Vars: Staging"
+  
+  deploy-prod:
+    # you can set approvers required in settings for prod environment type to run this job
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    # environment: ${{ inputs.target-env }}
+    environmnet: prod
+    # env:
+    #   MY_ENV_Value: ${{ vars.MY_ENV_Value || 'default value'}}
+    steps:
+      - name: echo-vars
+        run: |
+          # echo "Env Vars: ${{ env.MY_ENV_Value}}"
+          echo "Env Vars: Prod"
 
 
