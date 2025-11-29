@@ -12,7 +12,7 @@ jobs:
   deploy-staging:
     runs-on: ubuntu-latest
     # environment: ${{ inputs.target-env }}
-    environmnet: staging
+    environment: staging
     # env:
     #   MY_ENV_Value: ${{ vars.MY_ENV_Value || 'default value'}}
     steps:
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy-staging
     # environment: ${{ inputs.target-env }}
-    environmnet: Prod
+    environment: Prod
     # env:
     #   MY_ENV_Value: ${{ vars.MY_ENV_Value || 'default value'}}
     steps:
