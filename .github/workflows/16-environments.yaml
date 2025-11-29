@@ -2,11 +2,11 @@ name: 16-environments
 run-name: working with environments | env - ${{ inputs.target-env}}
 on:
   workflow_dispatch:
-    inputs:
-      target-env:
-        type: environment
-        # this type check the environment section in settings for variables and values but this feature avaiable only for non-organisation  
-        default: staging
+    # inputs:
+    #   target-env:
+    #     type: environment
+    #     # this type check the environment section in settings for variables and values but this feature avaiable only for non-organisation  
+    #     default: staging
     
 jobs:
   deploy-staging:
