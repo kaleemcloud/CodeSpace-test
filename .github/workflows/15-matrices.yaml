@@ -56,6 +56,9 @@ jobs:
           - color: Red
             shape: triangle
           - opacity: 50
+
+        exclude:
+          - opacity: 75
     steps:
       - name: diagram
         run: echo "${{ matrix.color}}-${{ matrix.shape}}-${{ matrix.size}}--${{ matrix.opacity}}"
