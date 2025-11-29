@@ -50,4 +50,6 @@ jobs:
         include:
           - color: Red
             shape: triangle
-
+    steps:
+      - name: diagram
+        run: echo "${{ matrix.color}}-${{ matrix.shape}}-${{ matrix.size}}"
