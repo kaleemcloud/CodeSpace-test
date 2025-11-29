@@ -31,10 +31,10 @@ jobs:
       #   if: matrix.tag == 'experimental'
       #   run: exit 1
 
-      - name: perform some test
-        run: |
-          echo "Running test on os ${{ matrix.os }} and Nodejs ${{ matrix.node-version}}"
-          sleep 10
+      # - name: perform some test
+      #   run: |
+      #     echo "Running test on os ${{ matrix.os }} and Nodejs ${{ matrix.node-version}}"
+      #     sleep 10
 
       - name: Upload Test Results
         run: echo "uploading test results"
