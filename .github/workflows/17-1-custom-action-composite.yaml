@@ -1,7 +1,15 @@
-name: 17-custom action - composite
+name: 17-1-custom action - composite
+run-name: 17-1-custom action - composite | env - {{ inputs.target-env }}
 
 on:
   workflow_dispatch:
+    inputs:
+      target-env:
+        description: which environment to target
+        type: choice
+        options:
+          - dev
+          - prod
 
 env:
   working-directory: 17-custom-actions/react-app
@@ -19,6 +27,7 @@ jobs:
         with:
           node-version: 20.x
           working-dir: ${{ env.working-directory }}
+          target-env: ${{ inputs.target-env }}
       - name: test
         run: npm run test
         working-directory: ${{ env.working-directory }}
